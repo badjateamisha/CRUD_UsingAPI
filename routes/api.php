@@ -5,6 +5,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\ContactController;
+//use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 
 
 Route::post('create', [ContactController::class, 'create']);
@@ -14,6 +15,10 @@ Route::Put('updatebyID/{id}', [ContactController::class, 'update_by_id']);
 Route::post('updatebyID/{id}', [ContactController::class, 'update_by_id']);
 //Delete data by Delete method
 Route::Delete('deletebyID/{id}',[ContactController::class,'delete_by_id']);
+
+Route::post('changePassword',[ContactController::class,'changePassword']);
+Route::post('resetPassword',[ContactController::class,'resetPassword']);
+Route::post('forgotPassword',[ContactController::class,'forgotPassword']);
 
 Route::post('login', [UserController::class, 'login']);
 Route::post('register', [UserController::class, 'register']);
